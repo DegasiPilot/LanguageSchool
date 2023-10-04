@@ -9,6 +9,11 @@
       Title="UslugiPage">
 
     <Grid Background="White">
-        <TextBlock>Код администратора</TextBlock>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock>Код администратора</TextBlock>
+                <PasswordBox Width="100" Margin="5 0"></PasswordBox>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
