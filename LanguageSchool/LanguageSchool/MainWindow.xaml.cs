@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LanguageSchool.Pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,18 +25,18 @@ namespace LanguageSchool
         public MainWindow()
         {
             InitializeComponent();
-            var path = @"C:\Users\222119\Downloads\Task\Сессия 1\services_s_import\";
-            foreach(var item in App.db.Service.ToArray())
-            {
-                var fullPath = path + item.MainImagePath.Trim();
-                var imageByte = File.ReadAllBytes(fullPath);
-                item.MainImage = imageByte;
-            }
+            //var path = @"C:\Users\222119\Downloads\Task\Сессия 1\services_s_import\";
+            //foreach(var item in App.db.Service.ToArray())
+            //{
+            //    var fullPath = path + item.MainImagePath.Trim();
+            //    var imageByte = File.ReadAllBytes(fullPath);
+            //    item.MainImage = imageByte;
+            //}
         }
 
         private void UslugiButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ServiceListPage());
         }
     }
 }

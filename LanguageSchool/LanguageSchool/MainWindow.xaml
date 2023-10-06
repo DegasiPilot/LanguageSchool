@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LanguageSchool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Лерн" Height="450" Width="900">
     <Grid Background="#FFE7FABF">
         <Grid.RowDefinitions>
             <RowDefinition Height="25*"/>
@@ -15,13 +15,13 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="22*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="/Images/school_logo.png" />
+        <Image Source="/Images/school_logo.png" HorizontalAlignment="Left"/>
         <TextBlock Grid.ColumnSpan="2" FontSize="24" Height="34" Width="248">Школа языков "Лерн"</TextBlock>
-        <StackPanel Margin="0,50,0,0" Grid.RowSpan="2">
-            <Button Height="30" Width="80" Margin="0 15" Click="UslugiButton_Click">Список услуг</Button>
-            <Button Height="30" Width="60" Margin="0 10" x:Name="BackBtn">Назад</Button>
-            <Button Height="30" Width="60" x:Name="ForwardBtn">Вперед</Button>
+        <StackPanel Margin="0,50,0,0" Grid.Row="1">
+            <Button Margin="10 15" Click="UslugiButton_Click" >Список услуг</Button>
+            <Button Margin="10 10" x:Name="BackBtn">Назад</Button>
+            <Button Margin="10 10" x:Name="ForwardBtn">Вперед</Button>
         </StackPanel>
-        <Frame Grid.Column="1" Margin="0,50,0,0" Grid.RowSpan="2"/>
+        <Frame Grid.Column="1" x:Name="MainFrame" Grid.Row="1"/>
     </Grid>
 </Window>
