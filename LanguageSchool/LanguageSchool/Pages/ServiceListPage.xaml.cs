@@ -24,6 +24,10 @@ namespace LanguageSchool.Pages
         public ServiceListPage()
         {
             InitializeComponent();
+            if(App.IsAdmin == false)
+            {
+                AddBtn.Visibility = Visibility.Hidden;
+            }
             var services = App.db.Service.ToList();
             foreach(var service in services)
             {
@@ -33,7 +37,7 @@ namespace LanguageSchool.Pages
                     service.Title,
                     service.Cost,
                     service.CostTime,
-                    service.Discount.ToString(),
+                    service.TextDiscount,
                     service.CostVisiblity
                     )
                 ) ;

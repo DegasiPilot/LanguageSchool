@@ -19,5 +19,6 @@
 
             </WrapPanel>
         </ScrollViewer>
+        <Button x:Name="AddBtn" Grid.Row="2">Добавить</Button>
     </Grid>
 </Page>

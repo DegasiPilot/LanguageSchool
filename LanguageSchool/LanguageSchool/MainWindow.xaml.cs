@@ -38,5 +38,29 @@ namespace LanguageSchool
         {
             MainFrame.Navigate(new ServiceListPage());
         }
+
+        private void AdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.IsAdmin)
+            {
+                App.IsAdmin = false;
+                AdminBtnText.Text = "Вкл. режим администратора";
+                MainFrame.Navigate(new ServiceListPage());
+            }
+            else
+            {
+                if(AdminPb.Password == "0000")
+                {
+                    App.IsAdmin = true;
+                    AdminBtnText.Text = "Выкл. режим администратора";
+                    AdminPb.Clear();
+                    MainFrame.Navigate(new ServiceListPage());
+                }
+                else
+                {
+                    MessageBox.Show("Неправильный пароль!");
+                }
+            }
+        }
     }
 }

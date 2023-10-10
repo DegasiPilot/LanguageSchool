@@ -25,10 +25,15 @@ namespace LanguageSchool.Components
             InitializeComponent();
             ServiceImage = image;
             TitleTb.Text = title;
-            CostTb.Text = cost.ToString();
+            CostTb.Text = cost.ToString("0");
             CostTimeTb.Text = costTime;
             DiscountTb.Text = discount;
             CostTb.Visibility = costVisibility;
+            if(App.IsAdmin == false)
+            {
+                RedactBtn.Visibility = Visibility.Hidden;
+                DeleteBtn.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

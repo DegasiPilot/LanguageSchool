@@ -34,5 +34,16 @@ namespace LanguageSchool.Components
                 }
             }
         }
+
+        public string TextDiscount
+        {
+            get
+            {
+                if (Discount == 0)
+                    return null;
+                else
+                    return $"* скидка {Discount * 100}%";
+            }
+        }
     }
 }
