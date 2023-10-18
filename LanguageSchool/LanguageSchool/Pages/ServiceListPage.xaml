@@ -14,11 +14,33 @@
             <RowDefinition Height="350*"/>
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>По цене</TextBlock>
+            <ComboBox x:Name="SortCb" SelectionChanged="Refresh_Filter">
+                <ComboBoxItem>По умолчанию</ComboBoxItem>
+                <ComboBoxItem>По возрастанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+            <TextBlock>По скидке</TextBlock>
+            <ComboBox x:Name="DiscountFilterCb" SelectionChanged="Refresh_Filter">
+                <ComboBoxItem>Все</ComboBoxItem>
+                <ComboBoxItem>от 0 до 5%</ComboBoxItem>
+                <ComboBoxItem>от 5 до 15%</ComboBoxItem>
+                <ComboBoxItem>от 15 до 30%</ComboBoxItem>
+                <ComboBoxItem>от 30 до 70%</ComboBoxItem>
+                <ComboBoxItem>от 70 до 100%</ComboBoxItem>
+            </ComboBox>
+            <TextBlock>По названию и описанию</TextBlock>
+            <TextBox x:Name="SearchTb" TextChanged="Refresh_Filter"></TextBox>
+        </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Margin="15 0 5 0">
             <WrapPanel x:Name="ServiceWrapPanel">
 
             </WrapPanel>
         </ScrollViewer>
-        <Button x:Name="AddBtn" Grid.Row="2">Добавить</Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="AddBtn">Добавить</Button>
+            <TextBlock x:Name="KolvoZapiseyTb" Margin="15 0" Width="100"></TextBlock>
+        </StackPanel>
     </Grid>
 </Page>

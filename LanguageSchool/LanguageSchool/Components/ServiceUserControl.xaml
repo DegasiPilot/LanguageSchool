@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LanguageSchool.Components"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="725">
-    <Grid Margin="0 15" Width="725">
+    <Grid Margin="0 15" Width="725" x:Name="UserControlGrid">
         <Border BorderThickness="1" BorderBrush="Black">
             <Grid>
                 <Grid.RowDefinitions>
@@ -28,7 +28,7 @@
                 <TextBlock Grid.Column="1" Grid.Row="2" x:Name="DiscountTb"></TextBlock>
                 <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Margin="15 0">
                     <Button x:Name="RedactBtn" Width="100">Редактировать</Button>
-                    <Button x:Name="DeleteBtn" Width="100">Удалить</Button>
+                    <Button x:Name="DeleteBtn" Width="100" Click="DeleteBtn_Click">Удалить</Button>
                 </StackPanel>
             </Grid>
         </Border>
