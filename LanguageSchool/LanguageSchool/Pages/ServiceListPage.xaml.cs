@@ -82,5 +82,10 @@ namespace LanguageSchool.Pages
             }
             KolvoZapiseyTb.Text = services.Count() + " из " + App.db.Service.Count();
         }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyNavigation.NextPage(new PageComponent(new AddEditServicePage(new Service()), "Добавить услугу"));
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using LanguageSchool.Pages;
+﻿using LanguageSchool.Components;
+using LanguageSchool.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,6 +26,7 @@ namespace LanguageSchool
         public MainWindow()
         {
             InitializeComponent();
+            MyNavigation.mainWindow = this;
             var path = @"C:\Users\222119\Downloads\Task\Сессия 1\services_s_import\";
             foreach (var item in App.db.Service.ToArray())
             {
@@ -36,7 +38,7 @@ namespace LanguageSchool
 
         private void UslugiButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ServiceListPage());
+            MyNavigation.NextPage(new PageComponent(new ServiceListPage(), "Список услуг"));
         }
 
         private void AdminButton_Click(object sender, RoutedEventArgs e)
@@ -45,7 +47,8 @@ namespace LanguageSchool
             {
                 App.IsAdmin = false;
                 AdminBtnText.Text = "Вкл. режим администратора";
-                MainFrame.Navigate(new ServiceListPage());
+                MyNavigation.ClearStory();
+                MyNavigation.NextPage(new PageComponent(new ServiceListPage(), "Список услуг"));
             }
             else
             {
@@ -54,13 +57,19 @@ namespace LanguageSchool
                     App.IsAdmin = true;
                     AdminBtnText.Text = "Выкл. режим администратора";
                     AdminPb.Clear();
-                    MainFrame.Navigate(new ServiceListPage());
+                    MyNavigation.ClearStory();
+                    MyNavigation.NextPage(new PageComponent(new ServiceListPage(),"Список услуг"));
                 }
                 else
                 {
                     MessageBox.Show("Неправильный пароль!");
                 }
             }
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyNavigation.BackPage();
         }
     }
 }

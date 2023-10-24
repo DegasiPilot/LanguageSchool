@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LanguageSchool.Pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -46,10 +47,17 @@ namespace LanguageSchool.Components
             BitmapImage bitmapImage = new BitmapImage();
             try
             {
-                MemoryStream byteStream = new MemoryStream(byteImage);
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = byteStream;
-                bitmapImage.EndInit();
+                if (service.MainImage != null)
+                {
+                    MemoryStream byteStream = new MemoryStream(byteImage);
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = byteStream;
+                    bitmapImage.EndInit();
+                }
+                else
+                {
+                    bitmapImage = new BitmapImage(new Uri(@"\Images\school_logo.png",UriKind.Relative));
+                }
             }
             catch
             {
@@ -69,6 +77,11 @@ namespace LanguageSchool.Components
                 App.db.Service.Remove(service);
                 App.db.SaveChanges();
             }
+        }
+
+        private void RedactBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyNavigation.NextPage(new PageComponent(new AddEditServicePage(service), "Редактировать услугу"));
         }
     }
 }
