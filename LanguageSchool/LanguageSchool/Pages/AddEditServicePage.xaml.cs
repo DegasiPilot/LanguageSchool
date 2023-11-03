@@ -53,21 +53,32 @@ namespace LanguageSchool.Pages
                 {
                     errors.AppendLine("Такая услуга уже существует");
                 }
-                else if (service.DurationInSeconds > 14400)
-                {
-                    errors.AppendLine("Услуга дольше 4 часов");
-                }
             }
-            if(errors.Length > 0)
+
+            if (service.DurationInSeconds > 14400)
+            {
+                errors.AppendLine("Услуга дольше 4 часов");
+            }
+
+            if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
             }
             else
             {
-                App.db.Service.Add(service);
+                if (service.ID == 0)
+                {
+                    App.db.Service.Add(service);
+                }
                 App.db.SaveChanges();
                 MyNavigation.BackPage();
             }
+        }
+
+        private void DiscountTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text[0]))
+                e.Handled = true;
         }
     }
 }

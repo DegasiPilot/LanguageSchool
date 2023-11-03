@@ -32,7 +32,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Скидка</TextBlock>
-                <TextBox x:Name="DiscountTb" Text="{Binding Discount}"></TextBox>
+                <TextBox x:Name="DiscountTb" Text="{Binding Discount}" PreviewTextInput="DiscountTb_PreviewTextInput"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
                 <Image x:Name="MainImage" Height="100" Source="{Binding MainImage}"></Image>
