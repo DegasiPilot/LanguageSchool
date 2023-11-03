@@ -46,11 +46,28 @@ namespace LanguageSchool.Pages
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
             if(service.ID == 0)
             {
-                App.db.Service.Add(service);
+                if(App.db.Service.Any(x => x.Title == service.Title))
+                {
+                    errors.AppendLine("Такая услуга уже существует");
+                }
+                else if (service.DurationInSeconds > 14400)
+                {
+                    errors.AppendLine("Услуга дольше 4 часов");
+                }
             }
-            App.db.SaveChanges();
+            if(errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+            }
+            else
+            {
+                App.db.Service.Add(service);
+                App.db.SaveChanges();
+                MyNavigation.BackPage();
+            }
         }
     }
 }
