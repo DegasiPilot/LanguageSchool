@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LanguageSchool.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace LanguageSchool.Components
     public partial class PhotoUserContol : UserControl
     {
         ServicePhoto servicePhoto;
+        public static AddEditServicePage parentScript;
 
         public PhotoUserContol(ServicePhoto servicePhoto)
         {
@@ -31,12 +33,18 @@ namespace LanguageSchool.Components
 
         private void MakeMainBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var buffer = servicePhoto.PhotoByte.ToArray();
+            servicePhoto.PhotoByte = servicePhoto.Service.MainImage;
+            servicePhoto.Service.MainImage = buffer;
+            App.db.SaveChanges();
+            parentScript.RefreshPhoto();
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            App.db.ServicePhoto.Remove(servicePhoto);
+            App.db.SaveChanges();
+            parentScript.RefreshPhoto();
         }
     }
 }

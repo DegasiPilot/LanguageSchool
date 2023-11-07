@@ -37,6 +37,7 @@ namespace LanguageSchool.Components
             UserControlGrid.Background = service.DicountBrush;
             if(App.IsAdmin == false)
             {
+                ZapisatBtn.Visibility = Visibility.Hidden;
                 RedactBtn.Visibility = Visibility.Hidden;
                 DeleteBtn.Visibility = Visibility.Hidden;
             }
@@ -82,6 +83,11 @@ namespace LanguageSchool.Components
         private void RedactBtn_Click(object sender, RoutedEventArgs e)
         {
             MyNavigation.NextPage(new PageComponent(new AddEditServicePage(service), "Редактировать услугу"));
+        }
+
+        private void ZapisatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyNavigation.NextPage(new PageComponent(new UslugaZapis(service), "Записать клиента на услугу"));
         }
     }
 }

@@ -30,6 +30,7 @@ namespace LanguageSchool.Pages
             service = _service;
             DataContext = service;
             RefreshPhoto();
+            PhotoUserContol.parentScript = this;
         }
 
         private void EditImageBtn_Click(object sender, RoutedEventArgs e)
@@ -99,13 +100,20 @@ namespace LanguageSchool.Pages
             }
         }
 
-        private void RefreshPhoto()
+        public void RefreshPhoto()
         {
             PhotoWp.Children.Clear();
             foreach (var photo in service.ServicePhoto)
             {
                 PhotoWp.Children.Add(new PhotoUserContol(photo));
             }
+            BitmapImage bitmapImage = new BitmapImage();
+                    MemoryStream byteStream = new MemoryStream(service.MainImage);
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = byteStream;
+                    bitmapImage.EndInit();
+            MainImage.Source = bitmapImage;
+
         }
     }
 }
