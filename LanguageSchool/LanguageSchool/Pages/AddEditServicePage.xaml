@@ -5,40 +5,44 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LanguageSchool.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
       Title="AddEditServicePage">
 
     <Grid Background="White">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Идентификатор</TextBlock>
-                <TextBox Text="{Binding ID}" x:Name="IdentityTb" IsReadOnly="True"></TextBox>
+                <TextBlock><Run Text="Название"/></TextBlock>
+                <TextBox x:Name="NameTb" Text="{Binding Title}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Название</TextBlock>
-                <TextBox x:Name="NameTb" Text="{Binding Title}"></TextBox>
+                <TextBlock><Run Text="Идентификатор"/></TextBlock>
+                <TextBox Text="{Binding ID}" x:Name="IdentityTb" IsReadOnly="True"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Стоимоть</TextBlock>
-                <TextBox x:Name="CostTb" Text="{Binding Cost}"></TextBox>
+                <TextBlock><Run Text="Стоимоть"/></TextBlock>
+                <TextBox x:Name="CostTb" Text="{Binding Cost}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Длительность в минутах</TextBlock>
-                <TextBox x:Name="DlitelnostTb" Text="{Binding DurationInSeconds}"></TextBox>
+                <TextBlock><Run Text="Длительность в минутах"/></TextBlock>
+                <TextBox x:Name="DlitelnostTb" Text="{Binding DurationInSeconds}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock >Описание</TextBlock>
-                <TextBox x:Name="OpisanieTb" Text="{Binding Description}"></TextBox>
+                <TextBlock ><Run Text="Описание"/></TextBlock>
+                <TextBox x:Name="OpisanieTb" Text="{Binding Description}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Скидка</TextBlock>
-                <TextBox x:Name="DiscountTb" Text="{Binding Discount}" PreviewTextInput="DiscountTb_PreviewTextInput"></TextBox>
+                <TextBlock><Run Text="Скидка"/></TextBlock>
+                <TextBox x:Name="DiscountTb" Text="{Binding Discount}" PreviewTextInput="DiscountTb_PreviewTextInput"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-                <Image x:Name="MainImage" Height="100" Source="{Binding MainImage}"></Image>
-                <Button Height="40" x:Name="EditImageBtn" Click="EditImageBtn_Click">Изменить изображение</Button>
+                <Image x:Name="MainImage" Height="100" Source="{Binding MainImage}"/>
+                <Button Height="40" x:Name="EditImageBtn" Click="EditImageBtn_Click" Content="Изменить изображение"/>
             </StackPanel>
-            <Button x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
+            <Button x:Name="SaveBtn" Click="SaveBtn_Click" Content="Сохранить"/>
+            <ScrollViewer Margin="2" HorizontalScrollBarVisibility="Disabled">
+                <WrapPanel x:Name="PhotoWp" Height="100"/>
+            </ScrollViewer>
+            <Button x:Name="AddImageBtn" Content="Добавить изображение" Click="AddImageBtn_Click"/>
         </StackPanel>
     </Grid>
 </Page>

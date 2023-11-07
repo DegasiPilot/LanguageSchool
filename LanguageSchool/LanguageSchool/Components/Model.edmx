@@ -110,6 +110,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ServiceID" Type="int" Nullable="false" />
+          <Property Name="PhotoByte" Type="varbinary(max)" />
           <Property Name="PhotoPath" Type="nvarchar" MaxLength="1000" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -259,7 +260,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ServicePhoto_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ServicePhoto" Type="Self.ServicePhoto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Service">
@@ -485,6 +488,7 @@
           <Property Name="ServiceID" Type="Int32" Nullable="false" />
           <Property Name="PhotoPath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Service" Relationship="Self.FK_ServicePhoto_Service" FromRole="ServicePhoto" ToRole="Service" />
+          <Property Name="PhotoByte" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -788,6 +792,7 @@
           <EntitySetMapping Name="ServicePhoto">
             <EntityTypeMapping TypeName="LanguageSchool_Model.ServicePhoto">
               <MappingFragment StoreEntitySet="ServicePhoto">
+                <ScalarProperty Name="PhotoByte" ColumnName="PhotoByte" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
                 <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />

@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="LanguageSchool.Components.PhotoUserContol"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LanguageSchool.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="350">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="{Binding PhotoByte}" Width="330" x:Name="ImageImg"></Image>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="MakeMainBtn" Click="MakeMainBtn_Click">Сделать главным</Button>
+                <Button x:Name="DeleteBtn" Click="DeleteBtn_Click">Удалить</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
