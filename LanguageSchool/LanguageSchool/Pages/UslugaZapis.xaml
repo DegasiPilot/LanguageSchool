@@ -16,7 +16,7 @@
             <DatePicker Margin="5" Name="DateDp"></DatePicker>
             <StackPanel Orientation="Horizontal">
                 <TextBlock>Время</TextBlock>
-                <TextBox Width="70" x:Name="StartTimeTb"></TextBox>
+                <TextBox Width="70" x:Name="StartTimeTb" TextChanged="StartTimeTb_TextChanged"></TextBox>
                 <TextBox Width="70" IsEnabled="False" x:Name="EndTimeTb"></TextBox>
             </StackPanel>
             <Button x:Name="EntryBtn" Click="EntryBtn_Click">Записать</Button>

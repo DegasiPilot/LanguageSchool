@@ -35,7 +35,52 @@ namespace LanguageSchool.Pages
 
         private void EntryBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(ClientCb.SelectedItem != null && DateDp.SelectedDate != null && StartTimeTb.Text != "")
+            {
+                var startDate =$"{DateDp.SelectedDate.Value.ToString("dd.MM.yyyy")} {StartTimeTb.Text}";
+                if(DateTime.TryParse(startDate, out DateTime dateTimeStart))
+                {
+                    if (dateTimeStart > DateTime.Now)
+                    {
+                        var selectedClient = ClientCb.SelectedItem as Client;
+                        App.db.ClientService.Add(new ClientService()
+                        {
+                            ClientID = selectedClient.ID,
+                            ServiceID = service.ID,
+                            StartTime = dateTimeStart,
+                        });
+                        App.db.SaveChanges();
+                        MessageBox.Show("Запись добавлена!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Дата записи уже прошла!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Время введено неверно!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Заполните все поля!");
+            }
+        }
 
+        private void StartTimeTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(StartTimeTb.Text.Length == 5)
+            {
+                if(DateTime.TryParse(StartTimeTb.Text, out DateTime startTime))
+                {
+                    int seconds = service.DurationInSeconds;
+                    DateTime endTime = startTime.AddSeconds(seconds);
+                    EndTimeTb.Text = endTime.ToShortTimeString();
+                }
+                else
+                    EndTimeTb.Text = $"";
+            }
         }
     }
 }
