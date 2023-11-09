@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LanguageSchool.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="350">
+             d:DesignHeight="150" d:DesignWidth="200">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Source="{Binding PhotoByte}" Width="330" x:Name="ImageImg"></Image>
+            <Image Source="{Binding PhotoByte}" Height="100" x:Name="ImageImg"></Image>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="MakeMainBtn" Click="MakeMainBtn_Click">Сделать главным</Button>
                 <Button x:Name="DeleteBtn" Click="DeleteBtn_Click">Удалить</Button>

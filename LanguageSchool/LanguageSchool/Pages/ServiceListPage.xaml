@@ -40,6 +40,7 @@
         </ScrollViewer>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button x:Name="AddBtn" Click="AddBtn_Click">Добавить</Button>
+            <Button x:Name="NearZapisBtn" Click="NearZapisBtn_Click">Посмотреть ближайшие записи</Button>
             <TextBlock x:Name="KolvoZapiseyTb" Margin="15 0" Width="100"></TextBlock>
         </StackPanel>
     </Grid>

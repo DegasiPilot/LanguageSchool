@@ -51,6 +51,7 @@ namespace LanguageSchool.Pages
                         });
                         App.db.SaveChanges();
                         MessageBox.Show("Запись добавлена!");
+                        MyNavigation.NextPage(new PageComponent(new ServiceListPage(), "Список услуг"));
                     }
                     else
                     {

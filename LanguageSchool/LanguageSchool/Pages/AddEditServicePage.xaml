@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LanguageSchool.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="AddEditServicePage">
 
     <Grid Background="White">
@@ -39,8 +39,8 @@
                 <Button Height="40" x:Name="EditImageBtn" Click="EditImageBtn_Click" Content="Изменить изображение"/>
             </StackPanel>
             <Button x:Name="SaveBtn" Click="SaveBtn_Click" Content="Сохранить"/>
-            <ScrollViewer Margin="2" HorizontalScrollBarVisibility="Disabled">
-                <WrapPanel x:Name="PhotoWp" Height="100"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" Height="150">
+                <WrapPanel x:Name="PhotoWp" Width="270"/>
             </ScrollViewer>
             <Button x:Name="AddImageBtn" Content="Добавить изображение" Click="AddImageBtn_Click"/>
         </StackPanel>

@@ -49,12 +49,9 @@ namespace LanguageSchool.Pages
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-            if(service.ID == 0)
+            if (App.db.Service.Any(x => x.Title == service.Title && (service.ID == 0 || x.ID != service.ID)))
             {
-                if(App.db.Service.Any(x => x.Title == service.Title))
-                {
-                    errors.AppendLine("Такая услуга уже существует");
-                }
+                errors.AppendLine("Такая услуга уже существует");
             }
 
             if (service.DurationInSeconds > 14400)
@@ -91,10 +88,11 @@ namespace LanguageSchool.Pages
             };
             if (openFile.ShowDialog().GetValueOrDefault())
             {
-                App.db.ServicePhoto.Add(new ServicePhoto() {
+                App.db.ServicePhoto.Add(new ServicePhoto()
+                {
                     ServiceID = service.ID,
                     PhotoByte = File.ReadAllBytes(openFile.FileName)
-                });;
+                });
                 App.db.SaveChanges();
                 RefreshPhoto();
             }
@@ -108,10 +106,10 @@ namespace LanguageSchool.Pages
                 PhotoWp.Children.Add(new PhotoUserContol(photo));
             }
             BitmapImage bitmapImage = new BitmapImage();
-                    MemoryStream byteStream = new MemoryStream(service.MainImage);
-                    bitmapImage.BeginInit();
-                    bitmapImage.StreamSource = byteStream;
-                    bitmapImage.EndInit();
+            MemoryStream byteStream = new MemoryStream(service.MainImage);
+            bitmapImage.BeginInit();
+            bitmapImage.StreamSource = byteStream;
+            bitmapImage.EndInit();
             MainImage.Source = bitmapImage;
 
         }

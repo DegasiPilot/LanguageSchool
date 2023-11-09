@@ -112,6 +112,7 @@
     </Compile>
     <Compile Include="Components\MyNavigation.cs" />
     <Compile Include="Components\Partial classes\Client.cs" />
+    <Compile Include="Components\Partial classes\ClientService.cs" />
     <Compile Include="Components\Partial classes\Service.cs" />
     <Compile Include="Components\PhotoUserContol.xaml.cs">
       <DependentUpon>PhotoUserContol.xaml</DependentUpon>
@@ -148,6 +149,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\NearZapis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ServiceListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +165,9 @@
   <ItemGroup>
     <Compile Include="Pages\AddEditServicePage.xaml.cs">
       <DependentUpon>AddEditServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NearZapis.xaml.cs">
+      <DependentUpon>NearZapis.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ServiceListPage.xaml.cs">
       <DependentUpon>ServiceListPage.xaml</DependentUpon>

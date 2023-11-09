@@ -87,5 +87,10 @@ namespace LanguageSchool.Pages
         {
             MyNavigation.NextPage(new PageComponent(new AddEditServicePage(new Service()), "Добавить услугу"));
         }
+
+        private void NearZapisBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyNavigation.NextPage(new PageComponent(new NearZapis(), "Ближайшие записи"));
+        }
     }
 }
